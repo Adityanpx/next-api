@@ -8,3 +8,15 @@ export function GET(request,content){
         UserData.length==0?{result:"No Data found",success:false}:{result:UserData[0],success:true},
         {status:200})
 }
+
+export async function PUT(request,content){
+    let payload = await request.json();
+    payload.id = content.params.id;
+    console.log(payload);
+    if(!payload.id || !payload.name || !payload.email || !payload.age){
+        return NextResponse.json({result:"data not found",success:false},{status:400})
+}
+    
+
+    return NextResponse.json({result:payload,success:true},{status:200})
+}

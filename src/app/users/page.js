@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import "@/app/style.css";
 async function getUsers() {
   const response = await fetch("http://localhost:3000/api/user");
   const data = await response.json();
@@ -13,8 +13,9 @@ export default async function Page() {
     <div>
       <h1>Users List</h1>
       {users.map((item) => (
-        <div key={item.id}>
-          <Link href={`/users/${item.id}`}>{item.name}</Link>
+        <div key={item.id} className="user-item">
+          <span><Link href={`/users/${item.id}`}>{item.name}</Link> </span>
+          <span> <Link href={`/users/${item.id}/update`}> Edit  </Link> </span>
         </div>
       ))}
     </div>

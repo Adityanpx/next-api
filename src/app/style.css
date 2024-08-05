@@ -19,3 +19,8 @@
     text-align: -webkit-center;
 
 }
+
+.user-item span{
+    display: inline-block;
+    width: 150px;
+}
